@@ -52,10 +52,10 @@ class Enemy(GameSprite):
       
 class Wall(GameSprite):
     def __init__(self, x, y):
-        super().__init__("PacMan_map.png", x, y, width = 35, height = 35)
+        super().__init__("background_PM.jpg", x, y, width = 35, height = 35)
 
 
-bg = transform.scale(image.load("bacground_PacMan.png"), (WIDTH, HEIGHT))
+bg = transform.scale(image.load("background_PM.jpg"), (WIDTH, HEIGHT))
 player = Player("PacManSprite.png", x = 40, y = 350, width = 30, height = 30)
 
 
@@ -102,11 +102,7 @@ while run:
 
         for wall in walls:
             wall.draw()
-            if sprite.collide_rect(player, wall):
-                result = font1.render("YOU LOSE!", True, (238, 255, 148))
-                window.blit(result, (250,200))
-                finish = True
-
+            
 
         for e in enemys:
             e.update(walls)
@@ -120,6 +116,7 @@ while run:
             
 
         player.draw()
+
 
     display.update()
     clock.tick(FPS)
