@@ -4,7 +4,7 @@ WIDTH,HEIGHT = 880, 525
 FPS = 60
 
 
-point = 0 
+points = 0 
 mixer.init()
 mixer.music.load('PacMan_musik.ogg')
 mixer.music.set_volume(0.5)
@@ -129,12 +129,18 @@ while run:
                 window.blit(result, (250,200))
                 finish = True
                 
+        if len(fruits) == 0:
+            finish = True
 
+            result = font1.render("YOU WIN!", True, (238, 255, 148))
             
 
         player.draw()
 
         points_text = font1.render("Рахунок" + str(points), True,(255,255,255))
+
+    if finish:
+        window.blit(result, (250,200))    
 
     display.update()
     clock.tick(FPS)
