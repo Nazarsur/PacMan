@@ -3,12 +3,12 @@ from pygame import *
 WIDTH,HEIGHT = 880, 525  
 FPS = 60
 
+
+point = 0 
 mixer.init()
 mixer.music.load('PacMan_musik.ogg')
 mixer.music.set_volume(0.5)
 mixer.music.play()
-kick = mixer.Sound('kick.ogg')
-kick.play()
 
 window = display.set_mode((WIDTH, HEIGHT))
 display.set_caption("Пакмен")
@@ -134,6 +134,7 @@ while run:
 
         player.draw()
 
-        
+        points_text = font1.render("Рахунок" + str(points), True,(255,255,255))
+
     display.update()
     clock.tick(FPS)
